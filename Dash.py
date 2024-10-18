@@ -67,7 +67,7 @@ st.sidebar.header("Panel de opciones")
 
 #Insertar la imagen en sidebar
 #URL of the image
-image = "https://cdn5.travelconline.com/unsafe/fit-in/2000x0/filters:quality(75):strip_metadata():format(webp)/https%3A%2F%2Ftr2storage.blob.core.windows.net%2Fimagenes%2FCepFu9RAtqVN-YZCPyV6ulrjpeg.jpeg"  
+image = "https://www.vice.com/wp-content/uploads/sites/2/2024/07/1408551938bc55r.gif"  
 st.sidebar.image(image, use_column_width=True)
 
 
@@ -76,11 +76,8 @@ Frames = st.selectbox(label="Análisis de correlaciones", options=['Portada',"Re
 
 if Frames == "Portada":
     #Mostrar imágenes o gifs
-    image_list = [
-        ("imagen1.jpeg", "Tokyo"),
-        (st.markdown("![TOKYO](https://i.pinimg.com/originals/2a/7f/79/2a7f796fb55b5557b381d800af60735d.gif)"))    
-    ]
-    button=st.sidebar.button(label="APRIETAME VAMOS")
+    st.markdown("![TOKYO](https://i.pinimg.com/originals/2a/7f/79/2a7f796fb55b5557b381d800af60735d.gif)")
+    button=st.sidebar.button(label="APRIÉTAME")
     if button:
         st.markdown(""" 
             <div style='text-align:justified;'>
@@ -94,10 +91,10 @@ if Frames == "Portada":
 
 
     # Crear columnas para mostrar las imágenes en una distribución de 3 columnas
-    cols = st.columns(3)  # Crea 3 columnas para las imágenes
-    for i, (img_path, caption) in enumerate(image_list):
-        with cols[i]:
-            st.image(img_path, caption=f"{caption}", use_column_width=True)    
+        cols = st.columns(3)  # Crea 3 columnas para las imágenes
+        for i, (img_path, caption) in enumerate(image_list):
+            with cols[i]:
+                st.image(img_path, caption=f"{caption}", use_column_width=True)    
 ##############################################################################################################################
 
 #Regresion lineal simple
@@ -303,7 +300,7 @@ if Frames == "Boxplot":
 # Verificar que el usuario haya seleccionado al menos una variable
     if seleccion_columnas:
         # Crear la figura y el eje
-        fig, ax = plt.subplots(figsize=(12, 10))  # Tamaño ajustado para mejor visualización
+        fig, ax = plt.subplots(figsize=(6, 8))  # Tamaño ajustado para mejor visualización
 
         # Generar el boxplot con las columnas seleccionadas
         sns.boxplot(data=df[seleccion_columnas], ax=ax)
@@ -312,8 +309,8 @@ if Frames == "Boxplot":
         ax.set_title("Boxplot de las Variables Seleccionadas", fontsize=18, color="#34495e", pad=20)
 
         # Ajustar los ticks y su estilo
-        plt.xticks(fontsize=12, rotation=45, ha='right')  # Rota las etiquetas del eje x si es necesario
-        plt.yticks(fontsize=12)  # Ajusta el tamaño de las etiquetas del eje y
+        plt.xticks(fontsize=10, rotation=45, ha='right')  # Rota las etiquetas del eje x si es necesario
+        plt.yticks(fontsize=10)  # Ajusta el tamaño de las etiquetas del eje y
 
         # Mostrar el boxplot en Streamlit
         st.pyplot(fig)
